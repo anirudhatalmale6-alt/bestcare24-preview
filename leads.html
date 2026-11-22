@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Leads – BestCare24 WordPress dashboard (preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Figtree',system-ui,sans-serif;background:#F0F0F1;color:#1D2327;font-size:14px}
+a{color:inherit;text-decoration:none}
+.bar{height:34px;background:#1D2327;color:#C3C4C7;display:flex;align-items:center;padding:0 14px;gap:18px;font-size:13px}
+.bar b{color:#fff}
+.layout{display:grid;grid-template-columns:180px 1fr;min-height:calc(100vh - 34px)}
+.side{background:#1D2327;color:#F0F0F1;padding-top:10px}
+.side a{display:flex;align-items:center;gap:10px;padding:9px 14px;font-size:14px;color:#F0F0F1}
+.side a i{width:18px;height:18px;border-radius:4px;background:#50575E;display:inline-block}
+.side a.on{background:#1864A2;color:#fff;font-weight:600}
+.side a.on i{background:#fff}
+.side .badge{margin-left:auto;background:#D63638;color:#fff;border-radius:9px;font-size:11px;padding:1px 7px;font-weight:600}
+.main{padding:22px 26px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+h1{font-size:23px;font-weight:500}
+.btns{display:flex;gap:8px}
+.b{border:1px solid #1864A2;color:#1864A2;background:#fff;border-radius:4px;padding:6px 12px;font:inherit;font-weight:500}
+.b.p{background:#1864A2;color:#fff}
+.ex{background:#FCF9E8;border-left:4px solid #DBA617;padding:10px 14px;margin-bottom:18px;box-shadow:0 1px 1px rgba(0,0,0,.04)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+.k{background:#fff;border:1px solid #DCDCDE;border-radius:6px;padding:16px}
+.k span{color:#646970;font-size:13px}
+.k b{display:block;font-size:28px;font-weight:600;margin-top:4px}
+.k em{font-style:normal;font-size:12px;color:#00A32A;font-weight:600}
+.tabs{display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap;font-size:13px}
+.tabs a{padding:4px 8px;color:#2271B1}
+.tabs a.on{color:#1D2327;font-weight:600}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #C3C4C7}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #F0F0F1;vertical-align:top}
+th{font-weight:600;font-size:13px;border-bottom:1px solid #C3C4C7}
+tr:nth-child(even) td{background:#F6F7F7}
+td .n{color:#2271B1;font-weight:600}
+td small{display:block;color:#646970;margin-top:2px}
+.src{display:inline-block;border-radius:10px;padding:2px 9px;font-size:12px;font-weight:600}
+.s-ref{background:#EAE0EF;color:#6A4C7C}.s-ai{background:#DDE9F5;color:#1864A2}.s-quiz{background:#DCEBDF;color:#3F7752}
+.s-guide{background:#FBE3D3;color:#C2591A}.s-cb{background:#F0F0F1;color:#3C434A}.s-pop{background:#FCF0D9;color:#9A6700}
+.st{font-weight:600;font-size:12.5px}
+.st.new{color:#D63638}.st.con{color:#996800}.st.book{color:#00A32A}
+@media (max-width:900px){.layout{grid-template-columns:1fr}.side{display:none}.kpis{grid-template-columns:1fr 1fr}table{font-size:12.5px}th:nth-child(5),td:nth-child(5){display:none}}
+</style>
+</head>
+<body>
+<div class="bar"><b>BestCare24</b><span>Dashboard</span><span>+ New</span><span style="margin-left:auto">Howdy, admin</span></div>
+<div class="layout">
+  <aside class="side">
+    <a href="#"><i></i>Dashboard</a>
+    <a href="#"><i></i>Posts</a>
+    <a href="#"><i></i>Pages</a>
+    <a class="on" href="#"><i></i>Leads <span class="badge">6</span></a>
+    <a href="#"><i></i>Care Assistant</a>
+    <a href="#"><i></i>Media</a>
+    <a href="#"><i></i>Appearance</a>
+    <a href="#"><i></i>Settings</a>
+  </aside>
+  <main class="main">
+    <div class="top"><h1>Leads</h1><div class="btns"><button class="b">Export to Excel (CSV)</button><button class="b p">Notification settings</button></div></div>
+    <div class="ex"><b>Preview with example data.</b> Every lead from the website appears here automatically and is also emailed to support@bestcare24.co.uk.</div>
+    <div class="kpis">
+      <div class="k"><span>New this week</span><b>14</b><em>▲ 5 vs last week</em></div>
+      <div class="k"><span>Professional referrals</span><b>4</b></div>
+      <div class="k"><span>Care assistant chats</span><b>3</b></div>
+      <div class="k"><span>Care finder</span><b>3</b></div>
+      <div class="k"><span>Guide downloads</span><b>4</b></div>
+    </div>
+    <div class="tabs"><a class="on" href="#">All (14)</a>|<a href="#">New (6)</a>|<a href="#">Contacted (5)</a>|<a href="#">Assessment booked (3)</a></div>
+    <table>
+      <thead><tr><th>Received</th><th>Name</th><th>Source</th><th>Care needed</th><th>Contact</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Today 09:42</td><td><span class="n">Example: Ward Sister, General Hospital</span><small>Patient J.S. – SO15</small></td><td><span class="src s-ref">Referral</span></td><td>Hospital to home<small>Discharge within 48 hours</small></td><td>023 8000 0000</td><td><span class="st new">● New</span></td></tr>
+        <tr><td>Today 08:15</td><td><span class="n">Example: Sarah T.</span><small>For: her father</small></td><td><span class="src s-ai">Care assistant</span></td><td>Hospital to home</td><td>07700 900000</td><td><span class="st new">● New</span></td></tr>
+        <tr><td>Yesterday 21:03</td><td><span class="n">Example: Michael R.</span><small>SO16</small></td><td><span class="src s-quiz">Care finder</span></td><td>Dementia care</td><td>07700 900001</td><td><span class="st con">● Contacted</span></td></tr>
+        <tr><td>Yesterday 16:40</td><td><span class="n">Example: Priya K.</span></td><td><span class="src s-guide">Free guide</span></td><td>—<small>Downloaded family guide</small></td><td>priya@example.com</td><td><span class="st new">● New</span></td></tr>
+        <tr><td>Yesterday 11:22</td><td><span class="n">Example: Social worker, City Council</span><small>Client M.B. – SO14</small></td><td><span class="src s-ref">Referral</span></td><td>Mental health care</td><td>023 8000 0001</td><td><span class="st book">● Assessment booked</span></td></tr>
+        <tr><td>Mon 14:05</td><td><span class="n">Example: David L.</span><small>Best time: evening</small></td><td><span class="src s-cb">Callback</span></td><td>Live-in care</td><td>07700 900002</td><td><span class="st con">● Contacted</span></td></tr>
+        <tr><td>Mon 10:31</td><td><span class="n">Example: Margaret H.</span><small>For: herself</small></td><td><span class="src s-pop">Assessment pop-up</span></td><td>Elderly care</td><td>07700 900003</td><td><span class="st book">● Assessment booked</span></td></tr>
+      </tbody>
+    </table>
+  </main>
+</div>
+</body>
+</html>

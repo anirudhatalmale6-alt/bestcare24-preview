@@ -240,6 +240,30 @@ footer ul a:hover{color:#fff}
 .launch svg{width:20px;height:20px;fill:var(--blue)}
 .launch small{display:block;font-size:.78rem;opacity:.85;font-weight:400}
 
+/*chat*//* AI chat widget */
+.chat{display:none;position:fixed;right:24px;bottom:24px;z-index:80;width:350px;background:#fff;border-radius:22px;box-shadow:0 30px 70px -20px rgba(11,46,79,.55);overflow:hidden;font-size:.93rem}
+.chat-h{background:#0E2A4A;color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
+.chat-h .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#3B8FD6);display:grid;place-items:center;position:relative}
+.chat-h .av svg{width:20px;height:20px;fill:#fff}
+.chat-h .av::after{content:"";position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:#5BD08A;border:2px solid #0E2A4A}
+.chat-h b{display:block;font-size:1rem}
+.chat-h span{font-size:.8rem;color:#B9CDE0}
+.chat-h .x{margin-left:auto;opacity:.7;font-size:1.3rem;line-height:1}
+.chat-b{padding:14px;display:flex;flex-direction:column;gap:9px;background:#F6F9FC;max-height:400px;overflow:auto}
+.msg{max-width:84%;padding:10px 14px;border-radius:16px;line-height:1.45}
+.msg.bot{background:#fff;color:var(--ink);border-bottom-left-radius:4px;box-shadow:0 1px 0 var(--line)}
+.msg.me{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.qr{display:flex;flex-wrap:wrap;gap:6px}
+.qr span{border:1.5px solid #CFE0F0;color:var(--blue);background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.8rem}
+.chat-f{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat-f input{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:10px 14px;font:inherit;font-size:.9rem}
+.chat-f button{width:42px;height:42px;border-radius:50%;border:0;background:var(--orange);display:grid;place-items:center}
+.chat-f button svg{width:18px;height:18px;stroke:#fff}
+.chat-note{font-size:.72rem;color:var(--muted);text-align:center;padding:0 12px 10px}
+
+.chat.open{display:block}
+.chat-h .x{cursor:pointer}
+
 /*v5*/
 /* lead magnet */
 .guide{background:var(--beige);padding:96px 0}
@@ -326,6 +350,7 @@ footer ul a:hover{color:#fff}
   .quiz,.rform{padding:22px}
   .rec{flex-wrap:wrap}.rec .btn{margin-left:0;width:100%;justify-content:center}
   .launch{right:14px;bottom:14px}
+  .chat{right:10px;left:10px;bottom:10px;width:auto}
   .launch span{display:none}
   .launch{padding:8px}
 }
@@ -579,8 +604,23 @@ footer ul a:hover{color:#fff}
   </div>
 </footer>
 
-<a class="launch" href="#" aria-label="Ask our care assistant"><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></i><span>Ask our care assistant<small>Answers any time</small></span></a>
+<a class="launch" href="#" onclick="event.preventDefault();document.querySelector('.chat').classList.add('open');this.style.display='none'" aria-label="Ask our care assistant"><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></i><span>Ask our care assistant<small>Answers any time</small></span></a>
 
+<aside class="chat" aria-label="BestCare24 care assistant">
+  <div class="chat-h">
+    <span class="av"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>
+    <div><b>BestCare24 Assistant</b><span>AI helper · answers any time</span></div>
+    <span class="x" role="button" aria-label="Close" onclick="document.querySelector('.chat').classList.remove('open');document.querySelector('.launch').style.display=''">×</span>
+  </div>
+  <div class="chat-b">
+    <div class="msg bot">Hi! I'm the BestCare24 assistant. How can I help today? 😊</div>
+    <div class="msg me">My dad is coming home from hospital next week. Can you help?</div>
+    <div class="msg bot">I'm sorry to hear he's been unwell. Our <b>Hospital to Home</b> service puts care in place from the day he's back. Shall I book a free care assessment? I just need a name and number.</div>
+    <div class="qr"><span>Book an assessment</span><span>Types of care</span><span>I'm a professional</span></div>
+  </div>
+  <div class="chat-f"><input placeholder="Type your question…"><button aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></div>
+  <div class="chat-note">For emergencies please call 999.</div>
+</aside>
 <div class="pop-bg" id="pop" role="dialog" aria-modal="true" aria-label="Free care assessment">
   <div class="pop">
     <img src="img/visit.webp" alt="">
@@ -602,7 +642,8 @@ footer ul a:hover{color:#fff}
 (function(){var p=document.getElementById('pop');
 if(location.hash==='#assessment'){p.classList.add('show')}
 else{try{if(!sessionStorage.getItem('bc24pop')){setTimeout(function(){p.classList.add('show');sessionStorage.setItem('bc24pop','1')},25000)}}catch(e){}}
-p.addEventListener('click',function(e){if(e.target===p)p.classList.remove('show')});})();
+p.addEventListener('click',function(e){if(e.target===p)p.classList.remove('show')});
+document.querySelectorAll('.chips').forEach(function(g){g.addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c)return;e.preventDefault();g.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on')})});})();
 </script>
 </body>
 </html>

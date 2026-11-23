@@ -428,6 +428,20 @@ header.menu-open .menu-btn span:nth-child(2){opacity:0}
 header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 }
 @media (max-width:760px){header.menu-open nav ul{padding:0 18px}}
+</style><style>
+.bc24-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.bc24-ok{background:#EAF5EC;border:1px solid #BFDFC6;color:#1E5631;border-radius:14px;padding:18px 20px;font-size:.98rem;line-height:1.5}
+.bc24-ok b{display:block;font-size:1.08rem;margin-bottom:4px;color:#1E5631}
+.bc24-err{color:#C62828;font-size:.9rem;margin-top:10px;font-weight:500}
+.f-news .bc24-err,.cbar .bc24-err{color:#FFD9C7}
+.f-news .bc24-ok,.cbar .bc24-ok{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.f-news .bc24-ok b,.cbar .bc24-ok b{color:#fff}
+form[data-bc24] .btn[disabled]{opacity:.6;cursor:wait}
+.chat-b .qr a{display:inline-block;border:1px solid var(--blue-l);color:var(--blue);border-radius:999px;padding:5px 11px;font-size:.82rem;margin:0 6px 6px 0}
+.chat-form{display:grid;gap:8px;margin-top:6px}
+.chat-form input,.chat-form textarea{width:100%;border:1px solid #D9DDE2;border-radius:12px;padding:10px 12px;font:inherit;font-size:.92rem;resize:vertical}
+.chat-form .btn{justify-content:center;width:100%}
+.chat .chat-b{max-height:none}
 </style></head>
 <body>
 
@@ -461,9 +475,9 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
       <span class="kick">Home care in Southampton &amp; Hampshire</span>
       <h1>There's no place <br>like <span class="it">home</span></h1>
       <p>Person-centred care at home from NHS-trained nurses and carers, so your loved ones can stay safe, independent and happy where they belong. <b>Your home, your choice.</b></p>
-      <form class="search" onsubmit="return false">
-      <input placeholder="Enter your postcode" aria-label="Postcode" autocomplete="postal-code">
-      <select aria-label="How can we help?"><option>How can we help?</option><option>Elderly care</option><option>Dementia care</option><option>Live-in care</option><option>Respite care</option><option>Hospital to home</option><option>Mental health care</option></select>
+      <form class="search" data-bc24="search" novalidate>
+      <input name="postcode" placeholder="Enter your postcode" aria-label="Postcode" autocomplete="postal-code">
+      <select name="care_type" aria-label="How can we help?"><option value="">How can we help?</option><option>Elderly care</option><option>Dementia care</option><option>Live-in care</option><option>Respite care</option><option>Hospital to home</option><option>Mental health care</option></select>
       <button class="btn btn-or">Find care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
     </form>
       <div class="hero-note"><img src="img/2023_10_image-10.png" alt="Regulated by the Care Quality Commission" width="84" height="40"><span>Registered with the Care Quality Commission since June 2023 · <a href="https://www.cqc.org.uk/location/1-15843258176" target="_blank" rel="noopener" style="text-decoration:underline">view our registration</a></span></div>
@@ -558,17 +572,17 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
     <div class="intro">
       <span class="ai-tag"><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></i>Smart care finder</span>
       <h2>Not sure what you need? <span class="it">We'll guide you.</span></h2>
-      <p>Answer three quick questions and our care finder suggests the right service, then passes your answers to a care coordinator, so you only have to explain things once. Prefer to chat? Our care assistant answers questions any time, day or night.</p>
-      <a class="btn btn-blue" href="#">Start the care finder</a>
+      <p>Answer three quick questions and our care finder suggests the right service, then passes your answers to a care coordinator, so you only have to explain things once. Prefer to talk it through? Call us on 023 8020 0571 or send us a message.</p>
+      <a class="btn btn-blue" href="#quiz">Start the care finder</a>
     </div>
-    <div class="quiz">
-      <div class="row">Find the right care <span>Step 2 of 3</span></div>
+    <div class="quiz" id="quiz">
+      <div class="row">Find the right care <span>2 quick questions</span></div>
       <div class="bar"><i></i></div>
       <h4>Who needs care?</h4>
-      <div class="chips"><button class="chip">Me</button><button class="chip on">My mum or dad</button><button class="chip">My partner</button><button class="chip">A patient I support</button></div>
+      <div class="chips" data-q="who_for"><button type="button" class="chip">Me</button><button type="button" class="chip on">My mum or dad</button><button type="button" class="chip">My partner</button><button type="button" class="chip">A patient I support</button></div>
       <h4>What would help most?</h4>
-      <div class="chips"><button class="chip on">Help after a hospital stay</button><button class="chip">Daily routines</button><button class="chip">Memory / dementia</button><button class="chip">Company &amp; outings</button><button class="chip">24-hour support</button></div>
-      <div class="rec"><img src="img/visit.webp" alt=""><div><small>Suggested for you</small><b>Hospital to Home care</b></div><a class="btn btn-or" href="#">Get a callback</a></div>
+      <div class="chips" data-q="need"><button type="button" class="chip on">Help after a hospital stay</button><button type="button" class="chip">Daily routines</button><button type="button" class="chip">Memory / dementia</button><button type="button" class="chip">Company &amp; outings</button><button type="button" class="chip">24-hour support</button></div>
+      <div class="rec"><img src="img/visit.webp" alt=""><div><small>Suggested for you</small><b class="rec-name">Hospital to Home care</b></div><a class="btn btn-or" href="#assessment" data-open-pop="finder">Get a callback</a></div>
     </div>
   </div>
 </section>
@@ -591,12 +605,12 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
         <li>Checklist: questions to ask any care provider</li>
         <li>What happens at a free care assessment</li>
       </ul>
-      <form class="gform" onsubmit="return false">
-        <input placeholder="Your name" aria-label="Your name">
-        <input placeholder="Email address" aria-label="Email address">
+      <form class="gform" data-bc24="guide" novalidate>
+        <input name="name" placeholder="Your name" aria-label="Your name" autocomplete="name" required>
+        <input name="email" type="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required>
         <button class="btn btn-blue">Send me the guide</button>
       </form>
-      <p class="gnote">We'll email the guide straight away. No spam, unsubscribe any time.</p>
+      <p class="gnote">We'll email the guide straight away, plus the occasional care tip. No spam, unsubscribe any time.</p>
     </div>
   </div>
 </section>
@@ -658,20 +672,19 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
       </ul>
       <div class="family"><span class="c"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg></span><div><b>Know someone who needs care?</b><span>Families and friends can refer a loved one too. </span><a href="#">Refer a loved one →</a></div></div>
     </div>
-    <form class="rform" onsubmit="return false">
+    <form class="rform" data-bc24="referral" novalidate>
       <div class="hd"><h3>Professional referral</h3></div>
-      <div class="preview-note">Design preview only: this form does not send or store any data. The live version will be built with UK GDPR safeguards before it accepts real referrals.</div>
       <div class="g2">
-        <div class="f"><label>Your name</label><input placeholder="Full name"></div>
-        <div class="f"><label>Organisation</label><input placeholder="e.g. Southampton General"></div>
-        <div class="f"><label>Phone</label><input placeholder="Best number to reach you"></div>
-        <div class="f"><label>Email</label><input placeholder="name@nhs.net"></div>
-        <div class="f"><label>Patient initials &amp; postcode</label><input placeholder="e.g. J.S. – SO15"></div>
-        <div class="f"><label>Care needed</label><select><option>Hospital to home</option><option>Elderly care</option><option>Dementia care</option><option>Mental health care</option><option>Live-in care</option></select></div>
+        <div class="f"><label>Your name</label><input name="name" autocomplete="name" required placeholder="Full name"></div>
+        <div class="f"><label>Organisation</label><input name="organisation" placeholder="e.g. Southampton General"></div>
+        <div class="f"><label>Phone</label><input name="phone" type="tel" autocomplete="tel" required placeholder="Best number to reach you"></div>
+        <div class="f"><label>Email</label><input name="email" type="email" autocomplete="email" placeholder="name@nhs.net"></div>
+        <div class="f"><label>Patient initials &amp; postcode</label><input name="patient" placeholder="e.g. J.S. – SO15"></div>
+        <div class="f"><label>Care needed</label><select name="care_type"><option>Hospital to home</option><option>Elderly care</option><option>Dementia care</option><option>Mental health care</option><option>Live-in care</option></select></div>
       </div>
-      <div class="f"><label>How urgent?</label><select><option>Discharge within 48 hours</option><option>This week</option><option>Planning ahead</option></select></div>
-      <div class="f"><label>Anything we should know?</label><textarea placeholder="Brief summary of needs"></textarea></div>
-      <label class="consent"><input type="checkbox"> The patient (or their representative) has agreed to this referral and to BestCare24 processing their information.</label>
+      <div class="f"><label>How urgent?</label><select name="urgency"><option>Discharge within 48 hours</option><option>This week</option><option>Planning ahead</option></select></div>
+      <div class="f"><label>Anything we should know?</label><textarea name="message" placeholder="Brief summary of needs"></textarea></div>
+      <label class="consent"><input type="checkbox" name="consent" value="1" required> The patient (or their representative) has agreed to this referral and to BestCare24 processing their information.</label>
       <p class="gdpr">Please share only what we need to arrange care. See our <a href="#" style="text-decoration:underline">privacy notice</a> for how referral information is handled.</p>
       <button class="btn btn-blue">Send referral</button>
     </form>
@@ -680,7 +693,7 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
 
 <div class="cbar" id="callback"><div class="wrap">
   <div><h3>Prefer we call you?</h3><p>Leave your number and a care coordinator will call you back at a time that suits you.</p></div>
-  <form onsubmit="return false"><input placeholder="Your name" aria-label="Your name"><input placeholder="Phone number" aria-label="Phone number"><select aria-label="Best time"><option>Best time: Morning</option><option>Afternoon</option><option>Evening</option></select><button class="btn">Call me back</button></form>
+  <form data-bc24="callback" novalidate><input name="name" placeholder="Your name" aria-label="Your name" autocomplete="name" required><input name="phone" type="tel" placeholder="Phone number" aria-label="Phone number" autocomplete="tel" required><select name="best_time" aria-label="Best time"><option value="Morning">Best time: Morning</option><option value="Afternoon">Afternoon</option><option value="Evening">Evening</option></select><button class="btn">Call me back</button></form>
 </div></div>
 
 <div class="bigs"><div class="wrap">
@@ -696,7 +709,7 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
       <div><span class="f-mark"><img src="img/2023_09_logo-1.jpg" alt="BestCare24"></span></div>
       <div class="f-news">
         <h4>Sign up to our newsletter</h4>
-        <form onsubmit="return false"><input placeholder="Enter your email..."><button class="btn btn-or">Subscribe</button></form>
+        <form data-bc24="newsletter" novalidate><input name="email" type="email" placeholder="Enter your email..." aria-label="Email address" autocomplete="email" required><button class="btn btn-or">Subscribe</button></form>
         <small>Care tips and news from BestCare24. Unsubscribe any time.</small>
         <div class="socials"><a href="https://www.facebook.com/Bestcare24" target="_blank" rel="noopener" aria-label="BestCare24 on Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8H17l.6-4h-4.1V8.8c0-.5.3-.8.5-.8z"/></svg></a><a href="https://www.linkedin.com/company/bestcare24/" target="_blank" rel="noopener" aria-label="BestCare24 on LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a><a href="https://www.instagram.com/p/CQiuAMgJfE4/" target="_blank" rel="noopener" aria-label="BestCare24 on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a><a href="https://x.com/Bestcare249470" target="_blank" rel="noopener" aria-label="BestCare24 on X (Twitter)"><svg viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a></div>
         <div class="f-contact"><a href="tel:+442380200571">023 8020 0571</a> · <a href="mailto:support@bestcare24.co.uk">support@bestcare24.co.uk</a><br>Room 5, Roxan Business Centre, 142 Lodge Road, Southampton SO14 6QR</div>
@@ -708,21 +721,24 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
   </div>
 </footer>
 
-<a class="launch" href="#" onclick="event.preventDefault();document.querySelector('.chat').classList.add('open');this.style.display='none'" aria-label="Ask our care assistant"><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></i><span>Ask our care assistant<small>Answers any time</small></span></a>
+<a class="launch" href="#" onclick="event.preventDefault();document.querySelector('.chat').classList.add('open');this.style.display='none'" aria-label="Send us a message"><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></i><span>Questions? Message us<small>We'll call you back</small></span></a>
 
 <aside class="chat" aria-label="BestCare24 care assistant">
   <div class="chat-h">
     <span class="av"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></span>
-    <div><b>BestCare24 Assistant</b><span>AI helper · answers any time</span></div>
+    <div><b>BestCare24 Care Team</b><span>Leave a message and we'll call you back</span></div>
     <span class="x" role="button" aria-label="Close" onclick="document.querySelector('.chat').classList.remove('open');document.querySelector('.launch').style.display=''">×</span>
   </div>
   <div class="chat-b">
-    <div class="msg bot">Hi! I'm the BestCare24 assistant. How can I help today? 😊</div>
-    <div class="msg me">My dad is coming home from hospital next week. Can you help?</div>
-    <div class="msg bot">I'm sorry to hear he's been unwell. Our <b>Hospital to Home</b> service puts care in place from the day he's back. Shall I book a free care assessment? I just need a name and number.</div>
-    <div class="qr"><span>Book an assessment</span><span>Types of care</span><span>I'm a professional</span></div>
+    <div class="msg bot">Hi! 👋 How can we help today? Tell us a little about what you need and a care coordinator will get back to you.</div>
+    <div class="qr"><a href="#assessment" data-open-pop="chat">Book a free assessment</a><a href="https://bestcare24.co.uk/our-services/">Types of care</a><a href="#referrals" data-close-chat>I'm a professional</a></div>
+    <form class="chat-form" data-bc24="chat" novalidate>
+      <textarea name="message" rows="3" placeholder="Your question or message" aria-label="Your message" required></textarea>
+      <input name="name" placeholder="Your name" aria-label="Your name" autocomplete="name" required>
+      <input name="phone" type="tel" placeholder="Phone number" aria-label="Phone number" autocomplete="tel" required>
+      <button class="btn btn-or">Send message</button>
+    </form>
   </div>
-  <div class="chat-f"><input placeholder="Type your question…"><button aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></div>
   <div class="chat-note">For emergencies please call 999.</div>
 </aside>
 <div class="pop-bg" id="pop" role="dialog" aria-modal="true" aria-label="Free care assessment">
@@ -733,9 +749,9 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
       <small>Free, no obligation</small>
       <h3>Book a free care assessment</h3>
       <p>A senior care coordinator will visit at home or in hospital to talk through what's needed.</p>
-      <form onsubmit="return false">
-        <input placeholder="Your name"><input placeholder="Phone number"><input placeholder="Postcode">
-        <select><option>Who is the care for?</option><option>Me</option><option>A parent</option><option>A partner</option><option>Someone else</option></select>
+      <form data-bc24="assessment" novalidate>
+        <input type="hidden" name="care_type"><input name="name" placeholder="Your name" aria-label="Your name" autocomplete="name" required><input name="phone" type="tel" placeholder="Phone number" aria-label="Phone number" autocomplete="tel" required><input name="postcode" placeholder="Postcode" aria-label="Postcode" autocomplete="postal-code">
+        <select name="who_for" aria-label="Who is the care for?"><option value="">Who is the care for?</option><option>Me</option><option>A parent</option><option>A partner</option><option>Someone else</option></select>
         <button class="btn btn-or">Request my assessment</button>
       </form>
       <p class="fine">We'll only use your details to contact you about care.</p>
@@ -745,11 +761,43 @@ header.menu-open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-
 <script>
 (function(){var p=document.getElementById('pop');
 if(location.hash==='#assessment'){p.classList.add('show')}
+
 else{try{if(!sessionStorage.getItem('bc24pop')){setTimeout(function(){p.classList.add('show');sessionStorage.setItem('bc24pop','1')},25000)}}catch(e){}}
 p.addEventListener('click',function(e){if(e.target===p)p.classList.remove('show')});
 var hd=document.querySelector('header'),mb=hd&&hd.querySelector('.menu-btn');
 if(mb){mb.addEventListener('click',function(){var o=hd.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o?'true':'false')});
 hd.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('menu-open');mb.setAttribute('aria-expanded','false')})})}
+
+var API='/wp-json/bc24/v1/lead',T0=Date.now(),LIVE=/(^|\.)bestcare24\.co\.uk$/.test(location.hostname);
+var OK={search:['Thank you!','A care coordinator will call you shortly to talk through the care you need.'],assessment:['Thank you, we\'ve got your request.','A senior care coordinator will call you soon to arrange your free assessment. If it\'s urgent, call 023 8020 0571.'],finder:['Thank you!','A care coordinator will call you soon about the care you need.'],callback:['Thank you!','We\'ll call you back at the time you chose. If it\'s urgent, call 023 8020 0571.'],guide:['Your guide is on its way.','Check your inbox in a minute or two (and the spam folder, just in case).'],referral:['Referral received, thank you.','Our care team will review it and contact you about the next steps. For same-day discharges please also call 023 8020 0571.'],chat:['Message sent, thank you!','A care coordinator will call you back soon. For emergencies please call 999.'],newsletter:['You\'re subscribed.','Thanks for signing up to care tips and news from BestCare24.']};
+function first(n){return (n||'').trim().split(/\s+/)[0]||''}
+function openPop(src,care,who){var f=document.querySelector('#pop form');if(!f)return;f.setAttribute('data-src',src||'assessment');if(care!==undefined)f.care_type.value=care||'';if(who&&f.who_for){f.who_for.value=who}p.classList.add('show');setTimeout(function(){try{f.name.focus()}catch(e){}},50)}
+document.querySelectorAll('form[data-bc24]').forEach(function(f){
+  var hp=document.createElement('input');hp.type='text';hp.name='website';hp.tabIndex=-1;hp.autocomplete='off';hp.className='bc24-hp';hp.setAttribute('aria-hidden','true');f.appendChild(hp);
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var src=f.getAttribute('data-src')||f.getAttribute('data-bc24');
+    if(f.getAttribute('data-bc24')==='search'){openPop('search',(f.care_type&&f.care_type.value)||'');var pf=document.querySelector('#pop form');if(pf&&f.postcode)pf.postcode.value=f.postcode.value;return}
+    var err=f.querySelector('.bc24-err');if(!err){err=document.createElement('div');err.className='bc24-err';err.setAttribute('role','alert');f.appendChild(err)}err.textContent='';
+    var bad=[].slice.call(f.querySelectorAll('[required]')).filter(function(x){return x.type==='checkbox'?!x.checked:!x.value.trim()});
+    if(bad.length){err.textContent=bad[0].type==='checkbox'?'Please tick the consent box.':'Please fill in '+(bad[0].getAttribute('aria-label')||bad[0].placeholder||'the required fields').toLowerCase()+'.';bad[0].focus();return}
+    var em=f.querySelector('[type=email]');if(em&&em.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){err.textContent='Please check the email address.';em.focus();return}
+    var d={source:src,t:Date.now()-T0,page:location.pathname};
+    [].slice.call(f.elements).forEach(function(x){if(!x.name)return;if(x.type==='checkbox'){if(x.checked)d[x.name]=x.value}else if(x.value)d[x.name]=x.value});
+    if(src==='guide'||src==='newsletter')d.consent='1';
+    if(src==='finder'||src==='chat'||src==='assessment'){var q=document.querySelector('.chips[data-q=who_for] .chip.on');if(src==='finder'&&q&&!d.who_for)d.who_for=q.textContent}
+    var b=f.querySelector('button:not([type=button])');if(b)b.disabled=true;
+    function done(){var m=OK[src]||OK.callback,box=document.createElement('div');box.className='bc24-ok';box.setAttribute('role','status');box.innerHTML='<b></b><span></span>';box.firstChild.textContent=(first(d.name)&&src!=='referral'?m[0].replace(/^Thank you!?/,'Thank you, '+first(d.name)+'!'):m[0]);box.lastChild.textContent=m[1];f.style.display='none';f.parentNode.insertBefore(box,f.nextSibling);
+      if(f.closest('#pop'))setTimeout(function(){p.classList.remove('show')},6000)}
+    if(!LIVE){err.textContent='Preview only: forms send on the live website.';if(b)b.disabled=false;return}
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d),credentials:'same-origin'}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok&&j.ok,j:j}})}).then(function(r){
+      if(r.ok){done();try{window.dataLayer&&dataLayer.push({event:'bc24_lead',lead_source:src})}catch(e){}}else{err.textContent=(r.j&&r.j.error)||'Sorry, that didn\'t send. Please call us on 023 8020 0571.';if(b)b.disabled=false}
+    }).catch(function(){err.textContent='Sorry, that didn\'t send. Please call us on 023 8020 0571.';if(b)b.disabled=false});
+  });
+});
+document.querySelectorAll('[data-open-pop]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var s=a.getAttribute('data-open-pop'),care;if(s==='finder'){var r=document.querySelector('.rec-name');care=r?r.textContent:''}if(s==='chat'){document.querySelector('.chat').classList.remove('open');document.querySelector('.launch').style.display=''}var w=document.querySelector('.chips[data-q=who_for] .chip.on');openPop(s==='chat'?'assessment':s,care,s==='finder'&&w?({'Me':'Me','My mum or dad':'A parent','My partner':'A partner'}[w.textContent]||'Someone else'):'')})});
+document.querySelectorAll('[data-close-chat]').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.chat').classList.remove('open');document.querySelector('.launch').style.display=''})});
+var REC={'Help after a hospital stay':'Hospital to Home care','Daily routines':'Home care visits','Memory / dementia':'Dementia care','Company & outings':'Companionship & support','24-hour support':'Live-in care'};
+var need=document.querySelector('.chips[data-q=need]');if(need)need.addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c)return;var r=document.querySelector('.rec-name');if(r)r.textContent=REC[c.textContent]||'Home care visits';var bar=document.querySelector('.quiz .bar i');if(bar)bar.style.width='100%'});
 document.querySelectorAll('.chips').forEach(function(g){g.addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c)return;e.preventDefault();g.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on')})});})();
 </script>
 </body>

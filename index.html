@@ -442,19 +442,37 @@ form[data-bc24] .btn[disabled]{opacity:.6;cursor:wait}
 .chat-form input,.chat-form textarea{width:100%;border:1px solid #D9DDE2;border-radius:12px;padding:10px 12px;font:inherit;font-size:.92rem;resize:vertical}
 .chat-form .btn{justify-content:center;width:100%}
 .chat .chat-b{max-height:none}
-</style></head>
+</style><style>
+nav li.dd{position:relative}
+nav .sub{display:none;position:absolute;top:100%;left:-18px;min-width:250px;background:#fff;border-radius:14px;box-shadow:0 18px 40px rgba(19,86,143,.16);padding:10px;list-style:none;z-index:60;flex-direction:column;gap:0}
+nav li.dd:hover>.sub,nav li.dd:focus-within>.sub{display:flex}
+nav li.dd::after{content:'';position:absolute;left:0;right:0;top:100%;height:14px}
+nav .sub a{display:block;padding:9px 12px;border-radius:9px;font-weight:500;color:var(--navy);white-space:nowrap}
+nav .sub a:hover{background:#F2F6FA;color:var(--blue)}
+@media (max-width:1180px){
+header.menu-open nav{max-height:calc(100vh - 110px);overflow:auto}
+header.menu-open nav .sub{position:static;box-shadow:none;padding:0 0 8px 14px;min-width:0;display:none;border-radius:0}
+header.menu-open nav li.dd.open>.sub{display:flex}
+header.menu-open nav li.dd:hover>.sub{display:none}
+header.menu-open nav li.dd.open:hover>.sub{display:flex}
+header.menu-open nav .sub a{padding:10px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+header.menu-open nav li.dd>a svg{display:inline-block;margin-left:auto;transition:transform .2s}
+header.menu-open nav li.dd.open>a svg{transform:rotate(180deg)}
+}
+</style>
+</head>
 <body>
 
 <div class="ubar"><div class="wrap">
   <div>Call us: <a href="tel:+442380200571"><b>023 8020 0571</b></a><span class="em"> &nbsp;·&nbsp; <a href="mailto:support@bestcare24.co.uk">support@bestcare24.co.uk</a></span></div>
 </div></div>
-<header>
+<header class="bc-hd">
   <div class="wrap hdr">
     <a class="logo" href="#"><img src="img/2023_09_logo-1.jpg" alt="BestCare24" width="191" height="105"></a>
     <div class="hdr-r">
       <nav aria-label="Main"><ul>
-        <li><a href="#types">Types of care <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg></a></li>
-        <li><a href="#why">Why us? <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg></a></li>
+        <li class="dd"><a href="#types" aria-haspopup="true">Types of care <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg></a><ul class="sub"><li><a href="https://bestcare24.co.uk/our-services/">All care services</a></li><li><a href="https://bestcare24.co.uk/elderly-care/">Elderly care</a></li><li><a href="https://bestcare24.co.uk/personal-care/">Personal care</a></li><li><a href="https://bestcare24.co.uk/companionship-support/">Companionship &amp; support</a></li><li><a href="https://bestcare24.co.uk/dementia-care/">Dementia care</a></li><li><a href="https://bestcare24.co.uk/live-in-care/">Live-in care</a></li><li><a href="https://bestcare24.co.uk/respite-care/">Respite care</a></li><li><a href="https://bestcare24.co.uk/home-from-hospital-care/">Home from hospital</a></li><li><a href="https://bestcare24.co.uk/mental-health-care/">Mental health care</a></li><li><a href="https://bestcare24.co.uk/specialist-care/">Specialist care</a></li></ul></li>
+        <li class="dd"><a href="#why" aria-haspopup="true">Why us? <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg></a><ul class="sub"><li><a href="https://bestcare24.co.uk/about-us/">About us</a></li><li><a href="https://bestcare24.co.uk/our-mission/">Our mission</a></li><li><a href="https://bestcare24.co.uk/our-values/">Our values</a></li><li><a href="https://bestcare24.co.uk/our-team/">Our team</a></li><li><a href="https://bestcare24.co.uk/our-journey/">Our journey</a></li><li><a href="https://bestcare24.co.uk/our-customers/">Our customers</a></li></ul></li>
         <li><a href="#referrals">Patient referrals</a></li>
         <li><a href="#help">Help &amp; guidance</a></li>
         <li><a href="#stories">Blog</a></li>
@@ -764,9 +782,9 @@ if(location.hash==='#assessment'){p.classList.add('show')}
 
 else{try{if(!sessionStorage.getItem('bc24pop')){setTimeout(function(){p.classList.add('show');sessionStorage.setItem('bc24pop','1')},25000)}}catch(e){}}
 p.addEventListener('click',function(e){if(e.target===p)p.classList.remove('show')});
-var hd=document.querySelector('header'),mb=hd&&hd.querySelector('.menu-btn');
+var hd=document.querySelector('header.bc-hd'),mb=hd&&hd.querySelector('.menu-btn');
 if(mb){mb.addEventListener('click',function(){var o=hd.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o?'true':'false')});
-hd.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('menu-open');mb.setAttribute('aria-expanded','false')})})}
+hd.querySelectorAll('nav .sub a, nav > ul > li:not(.dd) > a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('menu-open');mb.setAttribute('aria-expanded','false')})})}
 
 var API='/wp-json/bc24/v1/lead',T0=Date.now(),LIVE=/(^|\.)bestcare24\.co\.uk$/.test(location.hostname);
 var OK={search:['Thank you!','A care coordinator will call you shortly to talk through the care you need.'],assessment:['Thank you, we\'ve got your request.','A senior care coordinator will call you soon to arrange your free assessment. If it\'s urgent, call 023 8020 0571.'],finder:['Thank you!','A care coordinator will call you soon about the care you need.'],callback:['Thank you!','We\'ll call you back at the time you chose. If it\'s urgent, call 023 8020 0571.'],guide:['Your guide is on its way.','Check your inbox in a minute or two (and the spam folder, just in case).'],referral:['Referral received, thank you.','Our care team will review it and contact you about the next steps. For same-day discharges please also call 023 8020 0571.'],chat:['Message sent, thank you!','A care coordinator will call you back soon. For emergencies please call 999.'],newsletter:['You\'re subscribed.','Thanks for signing up to care tips and news from BestCare24.']};
@@ -798,6 +816,7 @@ document.querySelectorAll('[data-open-pop]').forEach(function(a){a.addEventListe
 document.querySelectorAll('[data-close-chat]').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.chat').classList.remove('open');document.querySelector('.launch').style.display=''})});
 var REC={'Help after a hospital stay':'Hospital to Home care','Daily routines':'Home care visits','Memory / dementia':'Dementia care','Company & outings':'Companionship & support','24-hour support':'Live-in care'};
 var need=document.querySelector('.chips[data-q=need]');if(need)need.addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c)return;var r=document.querySelector('.rec-name');if(r)r.textContent=REC[c.textContent]||'Home care visits';var bar=document.querySelector('.quiz .bar i');if(bar)bar.style.width='100%'});
+hd&&hd.querySelectorAll('li.dd > a').forEach(function(a){a.addEventListener('click',function(e){if(window.matchMedia('(max-width:1180px)').matches){e.preventDefault();a.parentNode.classList.toggle('open')}})});
 document.querySelectorAll('.chips').forEach(function(g){g.addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c)return;e.preventDefault();g.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on')})});})();
 </script>
 </body>

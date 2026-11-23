@@ -264,6 +264,22 @@ footer ul a:hover{color:#fff}
 .chat.open{display:block}
 .chat-h .x{cursor:pointer}
 
+
+/* live-in flagship */
+.livein{background:#fff}
+.li-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:center}
+.li-img{position:relative}
+.li-img img{border-radius:14px;aspect-ratio:4/4.3;object-fit:cover;width:100%}
+.li-tag{position:absolute;left:20px;top:20px;background:var(--orange);color:#fff;font-weight:600;font-size:.88rem;border-radius:999px;padding:7px 16px}
+.li-lead{color:var(--muted);margin:20px 0 26px;font-size:1.05rem}
+.li-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-bottom:32px}
+.li-list li{border-left:3px solid var(--orange);padding-left:14px}
+.li-list b{display:block;color:var(--navy);font-weight:600;margin-bottom:4px}
+.li-list span{color:var(--muted);font-size:.94rem}
+.li-acts{display:flex;gap:12px;flex-wrap:wrap}
+.preview-note{display:flex;gap:10px;align-items:flex-start;background:#FFF6EC;border:1px solid #FFD9B8;border-radius:10px;padding:12px 14px;font-size:.84rem;color:#7A4A1E;margin-bottom:18px}
+.gdpr{font-size:.8rem;color:var(--muted);margin:-8px 0 18px}
+
 /*v5*/
 /* lead magnet */
 .guide{background:var(--beige);padding:96px 0}
@@ -310,6 +326,7 @@ footer ul a:hover{color:#fff}
 
 @media (max-width:1180px){
   .guide .wrap{grid-template-columns:1fr;gap:50px}
+  .li-grid{grid-template-columns:1fr;gap:40px}
   nav,.sep,.tel{display:none}
   .menu-btn{display:block}
   .why .wrap,.finder,.stats .wrap,.stories .wrap,.refer .wrap{grid-template-columns:1fr;gap:44px}
@@ -319,6 +336,7 @@ footer ul a:hover{color:#fff}
 }
 @media (max-width:760px){
   .gform{grid-template-columns:1fr}
+  .li-list{grid-template-columns:1fr}
   .pop{grid-template-columns:1fr}
   .pop img{height:160px}
   .cbar input,.cbar select{min-width:0;width:100%}
@@ -388,12 +406,12 @@ footer ul a:hover{color:#fff}
       <select aria-label="How can we help?"><option>How can we help?</option><option>Elderly care</option><option>Dementia care</option><option>Live-in care</option><option>Respite care</option><option>Hospital to home</option><option>Mental health care</option></select>
       <button class="btn btn-blue">Find care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
     </form>
-    <div class="hero-note"><img src="img/2023_10_image-10.png" alt="Regulated by the Care Quality Commission" width="84" height="40"><span>Regulated by the Care Quality Commission</span></div>
+    <div class="hero-note"><img src="img/2023_10_image-10.png" alt="Regulated by the Care Quality Commission" width="84" height="40"><span>Registered with the Care Quality Commission since June 2023 · <a href="https://www.cqc.org.uk/location/1-15843258176" target="_blank" rel="noopener" style="text-decoration:underline">view our registration</a></span></div>
   </div>
 </section>
 
 <div class="strip"><ul class="wrap">
-  <li><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span><b>CQC</b> regulated</span></li>
+  <li><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span><b>CQC</b> registered</span></li>
   <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg><span>Led by <b>NHS-trained nurses</b></span></li>
   <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Care <b>24 hours a day</b></span></li>
   <li><svg viewBox="0 0 24 24"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Local to <b>Southampton</b></span></li>
@@ -448,6 +466,24 @@ footer ul a:hover{color:#fff}
           <ul><li><a href="#">Hospital discharge support</a></li><li><a href="#">Recovery care at home</a></li><li><a href="#referrals">Professional referrals</a></li></ul></div>
         <div class="foot"><a class="btn" href="#">Hospital to home care</a></div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="livein" id="live-in">
+  <div class="wrap li-grid">
+    <div class="li-img"><img src="img/family-l.webp" alt="A BestCare24 live-in carer with a client and her family at home" loading="lazy"><span class="li-tag">Our flagship service</span></div>
+    <div>
+      <span class="eyebrow">Live-in care</span>
+      <h2>Round-the-clock care, <span class="it">without leaving home</span></h2>
+      <p class="li-lead">A dedicated, fully trained carer lives with your loved one, so they can stay in the home they know, with familiar routines, pets and neighbours, and support whenever they need it, day or night.</p>
+      <ul class="li-list">
+        <li><b>A real alternative to a care home</b><span>One-to-one support at home instead of a move.</span></li>
+        <li><b>Carefully matched carer</b><span>Matched to personality, interests and care needs.</span></li>
+        <li><b>Clinical oversight</b><span>Care plans overseen by our nurse-led team and reviewed as needs change.</span></li>
+        <li><b>Short or long term</b><span>From a few weeks after a hospital stay to ongoing care.</span></li>
+      </ul>
+      <div class="li-acts"><a class="btn btn-or" href="#">Explore live-in care</a><a class="btn btn-out" href="tel:+442380200571">Call 023 8020 0571</a></div>
     </div>
   </div>
 </section>
@@ -558,7 +594,8 @@ footer ul a:hover{color:#fff}
       <div class="family"><span class="c"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg></span><div><b>Know someone who needs care?</b><span>Families and friends can refer a loved one too. </span><a href="#">Refer a loved one →</a></div></div>
     </div>
     <form class="rform" onsubmit="return false">
-      <div class="hd"><h3>Professional referral</h3><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure</span></div>
+      <div class="hd"><h3>Professional referral</h3></div>
+      <div class="preview-note">Design preview only: this form does not send or store any data. The live version will be built with UK GDPR safeguards before it accepts real referrals.</div>
       <div class="g2">
         <div class="f"><label>Your name</label><input placeholder="Full name"></div>
         <div class="f"><label>Organisation</label><input placeholder="e.g. Southampton General"></div>
@@ -569,7 +606,8 @@ footer ul a:hover{color:#fff}
       </div>
       <div class="f"><label>How urgent?</label><select><option>Discharge within 48 hours</option><option>This week</option><option>Planning ahead</option></select></div>
       <div class="f"><label>Anything we should know?</label><textarea placeholder="Brief summary of needs"></textarea></div>
-      <label class="consent"><input type="checkbox" checked> The patient (or their representative) has agreed to this referral.</label>
+      <label class="consent"><input type="checkbox"> The patient (or their representative) has agreed to this referral and to BestCare24 processing their information.</label>
+      <p class="gdpr">Please share only what we need to arrange care. See our <a href="#" style="text-decoration:underline">privacy notice</a> for how referral information is handled.</p>
       <button class="btn btn-blue">Send referral</button>
     </form>
   </div>
